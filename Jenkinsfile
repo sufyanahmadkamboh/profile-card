@@ -13,7 +13,7 @@ pipeline {
                                           usernameVariable: 'SSH_USER')]) {
           sh """
             chmod 600 "$SSH_KEY"
-            ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no "$SSH_USER"@"$TARGET_HOST" 'sudo cd /var/wwww/html/profile-card; sudo git pull; sudo service apache2 reload'
+            ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no "$SSH_USER"@"$TARGET_HOST" 'cd /var/wwww/html/profile-card; sudo git pull; sudo service apache2 reload'
           """
         }
       }
